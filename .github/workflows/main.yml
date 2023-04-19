@@ -14,9 +14,9 @@ jobs:
       - name: Installing Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18.14.2"
       - name: Installing dependencies
-        run: npm install
+        run: npm ci
       - name: Building project
         run: npm run build
       - name: Configure AWS Credentials
