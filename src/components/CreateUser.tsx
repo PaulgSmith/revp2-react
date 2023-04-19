@@ -12,7 +12,6 @@ interface ICreatUserProps {
   }
 
 export default function EditReimbursement(props: ICreatUserProps) {
-  const [status, setStatus] = useState<number | null>(null);
   const[new_username, set_new_username] = useState<string>("");
   const[new_pass, set_new_pass] = useState<string>("");
   const[new_name, set_new_name] = useState<string>("");
@@ -34,13 +33,11 @@ CreateUser(update_user);
 
   async function CreateUser(props: Personnel) {
     try {
-      const response = await authAppClient.post<Personnel>(
+      await authAppClient.post<Personnel>(
         'http://localhost:3000/personnel', props
       );
-      setStatus(response.status);
     } catch (error) {
       console.error('Error creating user:', error);
-      setStatus(null);
     }
   }
 
