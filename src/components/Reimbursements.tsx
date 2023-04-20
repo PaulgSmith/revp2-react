@@ -55,9 +55,12 @@ export default function Reimbursements(props: IReimbursementProps) {
   };
 
   const handleDeleteClick = () => {
-    authAppClient.delete(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement/${selectedId}`).then();
-    setSelectedId(null);
-    forceUpdate();
+    authAppClient.delete(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement/${selectedId}`).then(()=> {
+      forceUpdate();
+      setSelectedId(null);
+    });
+    //setSelectedId(null);
+    //forceUpdate();
   };
 
   function handleUpdateClick(){
