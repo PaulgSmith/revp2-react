@@ -25,12 +25,12 @@ const columns: GridColDef[] = [
 ];
 
 async function fetchReimbursementRequests(): Promise<ReimbursementRequest[]> {
-  const response = await authAppClient.get<ReimbursementRequest[]>('http://localhost:3000/reimbursement');
+  const response = await authAppClient.get<ReimbursementRequest[]>('http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement');
   return response.data;
 }
 
 async function postReimbursementRequest(request: ReimbursementRequest): Promise<ReimbursementRequest> {
-  const response = await authAppClient.post<ReimbursementRequest>(`http://localhost:3000/reimbursement`, request);
+  const response = await authAppClient.post<ReimbursementRequest>(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement`, request);
   return response.data;
 }
 
@@ -55,7 +55,7 @@ export default function Reimbursements(props: IReimbursementProps) {
   };
 
   const handleDeleteClick = () => {
-    authAppClient.delete(`http://localhost:3000/reimbursement/${selectedId}`).then();
+    authAppClient.delete(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement/${selectedId}`).then();
     setSelectedId(null);
     forceUpdate();
   };

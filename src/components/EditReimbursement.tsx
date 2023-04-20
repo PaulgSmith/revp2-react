@@ -21,12 +21,12 @@ const reimbursementStatuses = [
 ]
 
 async function fetchReimbursementRequest(id: Number): Promise<ReimbursementRequest> {
-    const response = await authAppClient.get<ReimbursementRequest>(`http://localhost:3000/reimbursement/${id}`);
+    const response = await authAppClient.get<ReimbursementRequest>(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement/${id}`);
     return response.data;
 }
 
 async function updateReimbursementRequest(request: ReimbursementRequest): Promise<ReimbursementRequest> {
-    const response = await authAppClient.put<ReimbursementRequest>(`http://localhost:3000/reimbursement/${request.id}`, request);
+    const response = await authAppClient.put<ReimbursementRequest>(`http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/reimbursement/${request.id}`, request);
     return response.data;
 }
 

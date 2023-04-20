@@ -34,7 +34,7 @@ CreateUser(update_user);
   async function CreateUser(props: Personnel) {
     try {
       await authAppClient.post<Personnel>(
-        'http://localhost:3000/personnel', props
+        'http://ec2-54-71-28-118.us-west-2.compute.amazonaws.com:3000/personnel', props
       );
     } catch (error) {
       console.error('Error creating user:', error);
